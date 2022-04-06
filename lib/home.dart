@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
-    class Flutter_Listview extends StatelessWidget {
+import 'SecondScreen.dart';
+import 'FlutterFormLogin.dart';
+  class HomePage extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
           title: 'ListViews',
+          debugShowCheckedModeBanner: false,
+          
           theme: ThemeData(
             primarySwatch: Colors.teal,
           ),
@@ -22,7 +24,12 @@ import 'package:flutter/material.dart';
         child: Icon(Icons.navigation),  
         backgroundColor: Colors.green,  
         foregroundColor: Colors.white,  
-        onPressed: () => {},  
+        onPressed: () => {
+           Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => FlutterFormLogin()),
+  )
+        },  
       ),  
             body: BodyLayout(),
           ),
@@ -51,6 +58,10 @@ import 'package:flutter/material.dart';
             trailing: Icon(Icons.keyboard_arrow_right),// add  icon vào phần cuối của item
            subtitle: Text('93 million miles away'),
             onTap: () {
+               Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SecondScreen()),
+  );
             },
           ),
           ListTile(
