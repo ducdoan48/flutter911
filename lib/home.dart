@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'SecondScreen.dart';
 import 'FlutterFormLogin.dart';
   class HomePage extends StatelessWidget {
+    //static final nameRoute = '/home';
       @override
       Widget build(BuildContext context) {
+         final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
         return MaterialApp(
           title: 'ListViews',
           debugShowCheckedModeBanner: false,
@@ -13,7 +15,7 @@ import 'FlutterFormLogin.dart';
           ),
           home: Scaffold(
             appBar: AppBar(  
-        title: Text("FAB Button Example"),  
+        title: Text(args.title),  
         backgroundColor: Colors.blue,  
         actions: <Widget>[  
           IconButton(icon: Icon(Icons.camera_alt), onPressed: () => {}),  
@@ -88,3 +90,22 @@ import 'FlutterFormLogin.dart';
         ],
       );
    }
+   class ExtractArgumentsScreen extends StatelessWidget {
+  const ExtractArgumentsScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/extractArguments';
+
+  @override
+  Widget build(BuildContext context) {
+    // Extract the arguments from the current ModalRoute
+    // settings and cast them as ScreenArguments.
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(args.title),
+      ),
+  
+    );
+  }
+}

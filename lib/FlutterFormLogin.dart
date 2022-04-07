@@ -1,19 +1,27 @@
 import 'package:first_project/home.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
+
 class FlutterFormLogin extends StatelessWidget{
+//static final nameRoute = '/Login';
   @override
   Widget build(BuildContext context) {
+  //final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
    final appTile = 'Flutter Form Login';
    return MaterialApp(//
      title: appTile,
-     home: Scaffold(
-       appBar: AppBar(
-         title: Text(appTile), 
-       ),
-      body:_FlutterFormLogin(),
-
-     ),
+     
+      initialRoute: '/',
+      routes: {
+        // ExtractArgumentsScreen.routeName: (context) => //đăng kí 
+        //     const ExtractArgumentsScreen(),
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/homepage': (context) =>  HomePage(),
+        '/': (context) => _FlutterFormLogin(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+      
+      },
+      
 
    );
 
@@ -39,8 +47,8 @@ class _FlutterFormLoginState extends State<_FlutterFormLogin> {
   @override  
   Widget build(BuildContext context) {  
     // Build a Form widget using the _formKey created above.  
-    return MaterialApp(
-      home: Scaffold(
+    
+    return Scaffold(
         body: Container(
           padding: EdgeInsets.fromLTRB(30, 100, 30, 0) ,
           constraints: BoxConstraints.expand(),
@@ -117,6 +125,7 @@ class _FlutterFormLoginState extends State<_FlutterFormLogin> {
                   shape:RoundedRectangleBorder (borderRadius: BorderRadius.all(Radius.circular(8))),//shape: hình dạng
                   color: Colors.blue,
                   onPressed: onSignInClicked,
+                  
                   child: Text("SIGN IN", style: TextStyle(fontSize:20, fontWeight: FontWeight.bold, color: Colors.white)),
                  
                   ),
@@ -143,11 +152,11 @@ class _FlutterFormLoginState extends State<_FlutterFormLogin> {
 
           
         ),
-      ),
+    );
      
        
           
-      );  
+
     
   }  
  
@@ -176,7 +185,8 @@ setState(() {
 
 
   if(!_userInvalid && !_passInvalid ){ // user hợp lệ và password hợp lệ
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));// MPR: route\
+   Navigator.pushNamed(context, '/homepage',arguments: ScreenArguments(_userController.text));
+   
     //Navigator.push(context, MaterialPageRoute(builder: gotoHome());
     
   }
@@ -186,3 +196,26 @@ setState(() {
 //   return HomePage();
 // }
 }
+class ScreenArguments {
+  final String title;
+  ScreenArguments(this.title);
+}
+// class ExtractArgumentsScreen extends StatelessWidget {
+//   const ExtractArgumentsScreen({Key? key}) : super(key: key);
+
+//   static const routeName = '/456';
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // Extract the arguments from the current ModalRoute
+//     // settings and cast them as ScreenArguments.
+//     final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(args.title),
+//       ),
+  
+//     );
+//   }
+// }

@@ -84,9 +84,7 @@ Widget buttonSection = Row(
         backgroundColor: Colors.green,  
         foregroundColor: Colors.white,  
         onPressed: () => {
-           Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => FlutterFormLogin()),
+           Navigator.push(context,MaterialPageRoute(builder: (context) => FlutterFormLogin()),
   )
           
         },  
