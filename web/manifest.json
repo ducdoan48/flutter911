@@ -1,6 +1,6 @@
 {
-    "name": "first_project",
-    "short_name": "first_project",
+    "name": "tiki_project",
+    "short_name": "tiki_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(first_project LANGUAGES CXX)
+project(tiki_project LANGUAGES CXX)
 
-set(BINARY_NAME "first_project")
+set(BINARY_NAME "tiki_project")
 
 cmake_policy(SET CMP0063 NEW)
 

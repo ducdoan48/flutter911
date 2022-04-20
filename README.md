@@ -1,4 +1,4 @@
-# first_project
+# tiki_project
 
 A new Flutter project.
 
